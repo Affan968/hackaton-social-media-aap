@@ -1,0 +1,158 @@
+/* =========================
+    GLOBAL PAGE STYLES
+========================= */
+body {
+    background-color: rgb(31, 27, 36);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+    LOGIN CARD
+========================= */
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    background-color: rgb(31, 27, 36);
+    border-radius: 16px;
+    /* Reduced horizontal padding for a slightly tighter look */
+    padding: 32px 28px; /* Changed from 32px 24px */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+    HEADINGS
+========================= */
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 24px;
+}
+
+.link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
+}
+
+/* =========================
+    FORM FIELDS
+========================= */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input {
+    width: 100%;
+    /* Use box-sizing to ensure padding doesn't increase total width */
+    box-sizing: border-box; /* Added for consistency */
+    padding: 12px 16px;
+    background-color: #332f37;
+    border: 1px solid #3b3640;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================
+    PASSWORD TOGGLE
+========================= */
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* =========================
+    LOGIN BUTTON
+========================= */
+.login-btn {
+      background-color: rgb(31, 27, 36);
+    padding: 12px 0px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: white
+}
+
+.login-btn:hover {
+    /* Adjusted hover color */
+  background-color: rgb(31, 27, 36);
+    padding: 32px 24px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: white}
+
+/* =========================
+    DIVIDER
+========================= */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.divider-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================
+    GOOGLE BUTTON
+========================= */
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #3b3640; /* Changed border color to match input border */
+    background-color: #332f37; /* Changed background color to match input background */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.google-btn:hover {
+    background-color: #3b3640; /* Subtle hover effect */
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}

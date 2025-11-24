@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       localStorage.setItem('userData', JSON.stringify(userData));
       alert('Data saved to localStorage!');
-      window.location.href="./index.html"
+      window.location.href="../index.html"
 
       
     }

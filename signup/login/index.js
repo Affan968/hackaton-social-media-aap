@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Save login data
       const loginData = { email: enteredEmail, password: enteredPassword };
       localStorage.setItem('loginData', JSON.stringify(loginData));
-      window.location.href="../index.html";
+      window.location.href="../../index.html";
 
     } else {
       alert("Incorrect email or password!");

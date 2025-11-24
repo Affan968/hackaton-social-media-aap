@@ -3,102 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slothui Dashboard Clone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'sidebar-bg': '#4F46E5', /* Indigo-600 */
-                        'main-bg': '#F9FAFB', /* Gray-50 */
-                        'card-bg': '#FFFFFF',
-                        'accent-blue': '#3B82F6', /* Blue-500 */
-                        'text-dark': '#1F2937', /* Gray-800 */
-                        'text-light': '#9CA3AF', /* Gray-400 */
-                        'link-hover': '#6366F1', /* Indigo-500 */
-                    }
-                }
-            }
-        }
-    </script>
-    <script defer src="index.js"></script>
+    <title>Slothui Dashboard Clone (CSS Only)</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-main-bg font-sans">
+<body class="body-base">
 
-<div class="flex h-screen overflow-hidden">
-
-    <aside class="w-64 bg-sidebar-bg text-white flex-shrink-0 flex flex-col p-4">
-        
-        <div class="flex items-center space-x-2 mb-8 p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+<div class="layout-container">
+<a href="./signup/login/index.html"></a>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
             </svg>
-            <span class="text-2xl font-extrabold">slothui</span>
+            <span class="logo-text">slothui</span>
         </div>
-        
-        <nav class="flex-grow space-y-2">
-            <a href="#" class="flex items-center space-x-2 p-2 rounded-lg bg-link-hover text-white font-medium shadow-md">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <a href="./signup/login/login.html"></a>
+        <nav class="nav-menu">
+            <a href="#" class="nav-link active">
+                <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                 </svg>
                 <span>Dashboard</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-link-hover/50 text-gray-200 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <a href="#" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18H4v-3a6 6 0 0112 0v3z" />
                 </svg>
                 <span>Profile</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-link-hover/50 text-gray-200 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <a href="#" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zm4.707 3.707a1 1 0 00-1.414-1.414L10 8.586 6.707 5.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 <span>Messages</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-link-hover/50 text-gray-200 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <a href="#" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                 </svg>
                 <span>Settings</span>
             </a>
         </nav>
-
-        <button id="logoutBtn" class="flex items-center space-x-2 p-2 mt-4 rounded-lg bg-red-600/70 hover:bg-red-700 text-white font-medium transition duration-150">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <button id="logoutBtn" class="logout-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 10l1.293 1.293a1 1 0 01-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 0z" clip-rule="evenodd" />
                 <path fill-rule="evenodd" d="M12 2a1 1 0 011 1v3a1 1 0 01-2 0V3a1 1 0 011-1zm5 1a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1z" clip-rule="evenodd" />
             </svg>
             <span>Logout</span>
         </button>
 
-        <div class="mt-4 border-t border-link-hover pt-4">
-            <div class="flex items-center space-x-3 p-2 hover:bg-link-hover/50 rounded-lg cursor-pointer transition">
-                <img class="w-10 h-10 rounded-full object-cover border-2 border-white"
-                     src="https://via.placeholder.com/150/FFFFFF/4F46E5?text=U" alt="User Avatar">
+        <div class="user-profile-section">
+            <div class="user-profile-link">
+                <img class="user-avatar" id="profileInitial"
+                    src="https://via.placeholder.com/150/FFFFFF/4F46E5?text=U" alt="User Avatar">
                 <div>
-                    <p class="font-semibold">User Name</p>
-                    <p class="text-xs text-gray-300">View Profile</p>
+                    <p class="username" id="sidebarUserName">User Name</p>
+                    <p class="view-profile-text">View Profile</p>
                 </div>
             </div>
         </div>
 
     </aside>
-<a href="../signup/"></a>
-    <main class="flex-1 overflow-y-auto">
-        <header class="bg-card-bg p-4 border-b border-gray-200 sticky top-0 z-20 shadow-sm flex justify-between items-center">
-            <div class="mx-auto max-w-7xl flex-1 flex justify-between items-center space-x-4">
+
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-inner">
                 
-                <div class="flex items-center space-x-3 bg-main-bg p-2 rounded-xl border border-gray-300 flex-1 max-w-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-text-light ml-1" viewBox="0 0 20 20" fill="currentColor">
+                <div class="search-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                     <input id="searchInput" type="text" placeholder="Search posts by title or content..."
-                           class="flex-grow bg-main-bg focus:outline-none text-text-dark text-sm"/>
+                                class="search-input"/>
                 </div>
 
-                <button id="openCreatePostModal" class="bg-accent-blue hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center transition duration-200 shadow-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <button id="openCreatePostModal" class="create-post-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="create-post-icon" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
                     </svg>
                     Create Post
@@ -107,16 +87,16 @@
             </div>
         </header>
         
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 mx-auto max-w-7xl">
+        <div class="dashboard-grid">
             
-            <div class="col-span-1 md:col-span-3 space-y-4">
+            <div class="activity-feed-section">
                 
-                <div class="flex justify-between items-center mb-4 p-3 bg-card-bg rounded-xl shadow-sm border border-gray-200">
-                    <h2 class="text-xl font-bold text-text-dark">Activity Feed</h2>
+                <div class="activity-header">
+                    <h2 class="activity-title">Activity Feed 📝</h2>
                     
-                    <div class="flex items-center space-x-2">
-                        <label for="sortSelect" class="text-sm text-text-dark font-medium">Sort By:</label>
-                        <select id="sortSelect" class="p-1.5 border border-gray-300 rounded-lg text-sm bg-white focus:ring-accent-blue focus:border-accent-blue">
+                    <div class="sort-control">
+                        <label for="sortSelect" class="sort-label">Sort By:</label>
+                        <select id="sortSelect" class="sort-select">
                             <option value="latest">Latest</option>
                             <option value="oldest">Oldest</option>
                             <option value="most_liked">Most Liked</option>
@@ -124,40 +104,40 @@
                     </div>
                 </div>
 
-                <div id="postsContainer" class="space-y-4">
-                    </div>
+                <div id="postsContainer" class="posts-container">
+                </div>
             </div>
 
-            <aside class="col-span-1 bg-card-bg rounded-xl shadow-md p-4 h-fit hidden md:block sticky top-[90px] border border-gray-200">
-                <h3 class="text-lg font-semibold text-text-dark mb-3">Trending</h3>
-                <ul class="space-y-2 text-sm text-text-light">
-                    <li><a href="#" class="hover:text-accent-blue transition">#DashboardUI</a></li>
-                    <li><a href="#" class="hover:text-accent-blue transition">#LocalData</a></li>
-                    <li><a href="#" class="hover:text-accent-blue transition">#FrontendDev</a></li>
+            <aside class="aside-section">
+                <h3 class="aside-title">🔥 Trending Topics</h3>
+                <ul class="trending-list">
+                    <li><a href="#" class="group-link"><span class="list-number">#1</span><span>DashboardUI</span></a></li>
+                    <li><a href="#" class="group-link"><span class="list-number">#2</span><span>LocalData Storage</span></a></li>
+                    <li><a href="#" class="group-link"><span class="list-number">#3</span><span>FrontendDev Secrets</span></a></li>
                 </ul>
             </aside>
         </div>
     </main>
 </div>
 
-<div id="createPostModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-    <div class="bg-card-bg rounded-xl w-full max-w-md shadow-2xl p-6 relative">
-        <h3 class="text-2xl font-bold text-text-dark mb-4">Create New Post</h3>
+<div id="createPostModal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <h3 class="modal-title">Create New Post 🚀</h3>
 
-        <button id="closeCreatePostModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition">
+        <button id="closeCreatePostModal" class="modal-close-btn">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
 
-        <div class="space-y-4">
+        <div class="modal-form-group">
             <input id="postTitleInput" type="text" placeholder="Post Title (Required)"
-                   class="w-full p-3 border border-gray-300 rounded-lg text-text-dark focus:ring-accent-blue focus:border-accent-blue"/>
+                        class="modal-input"/>
             
             <textarea id="postInput" placeholder="What's on your mind? (Content)" rows="4"
-                      class="w-full p-3 border border-gray-300 rounded-lg text-text-dark focus:ring-accent-blue focus:border-accent-blue resize-none"></textarea>
+                        class="modal-textarea"></textarea>
             
-            <label for="postImage" class="cursor-pointer bg-main-bg hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg flex items-center justify-center transition duration-150 border border-gray-300">
+            <label for="postImage" class="image-upload-label">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 5-4V5h1v10z" clip-rule="evenodd" />
                 </svg>
@@ -165,13 +145,13 @@
             </label>
             <input type="file" id="postImage" accept="image/*" class="hidden"/>
 
-            <button id="createPostBtn" class="w-full bg-accent-blue hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition duration-200 mt-2">
+            <button id="createPostBtn" class="publish-btn">
                 Publish Post
             </button>
         </div>
     </div>
-    <a href="../authentication-with-HTML-java-css/login/login.html"></a>
 </div>
 
+<script defer src="index.js"></script>
 </body>
 </html>

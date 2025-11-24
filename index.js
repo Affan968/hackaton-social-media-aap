@@ -2,8 +2,8 @@ const postInput = document.getElementById('postInput');
 const postImage = document.getElementById('postImage');
 const createPostBtn = document.getElementById('createPostBtn');
 const postsContainer = document.getElementById('postsContainer');
-const searchInput = document.getElementById('searchInput'); 
-const sortSelect = document.getElementById('sortSelect'); 
+const searchInput = document.getElementById('searchInput');
+const sortSelect = document.getElementById('sortSelect');
 const postTitleInput = document.getElementById('postTitleInput');
 
 // Modal elements
@@ -14,7 +14,7 @@ const closeModalBtn = document.getElementById('closeCreatePostModal');
 // Logout button
 const logoutBtn = document.getElementById('logoutBtn');
 
-// Sidebar profile elements
+// Sidebar profile elements (IDs added in HTML)
 const sidebarNameElement = document.getElementById('sidebarUserName');
 const profileInitialElement = document.getElementById('profileInitial');
 
@@ -22,14 +22,14 @@ const profileInitialElement = document.getElementById('profileInitial');
 
 function getUserName() {
     let userName = localStorage.getItem('userName');
-    
+
     if (!userName || userName.trim() === "") {
         userName = prompt("Enter your username:");
-        
+
         if (!userName || userName.trim() === "") {
-            userName = "You"; 
+            userName = "You";
         }
-        
+
         localStorage.setItem('userName', userName.trim());
     }
     return userName.trim();
@@ -37,15 +37,16 @@ function getUserName() {
 
 function updateUserNameInSidebar() {
     const userName = getUserName();
-    
+
     if (sidebarNameElement) {
         sidebarNameElement.textContent = userName;
     }
 
+    // Fallback/Default avatar URL using the initial
     if (profileInitialElement && userName.length > 0) {
         const initial = userName.charAt(0).toUpperCase();
         profileInitialElement.src = `https://via.placeholder.com/150/FFFFFF/4F46E5?text=${initial}`;
-        profileInitialElement.alt = `${userName}'s Avatar`; 
+        profileInitialElement.alt = `${userName}'s Avatar`;
     }
 }
 
@@ -54,23 +55,19 @@ function updateUserNameInSidebar() {
 function handleLogout() {
     const confirmation = confirm("Are you sure you want to logout? All local posts will be cleared?");
     if (confirmation) {
-        // Clear everything related to login
         localStorage.removeItem("loginData");
-        localStorage.removeItem("userName");
-        localStorage.removeItem("posts"); // optional: remove all posts if you want
-
-        // Redirect to login page
-        window.location.href="../signup/"
+        window.location.href = "./signup/login/login.html";
     }
 }
+
 
 
 /* ---------------- INITIALIZATION ---------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderPosts('latest'); 
+    renderPosts('latest');
     updateUserNameInSidebar();
-    
+
     if (searchInput) {
         searchInput.addEventListener('input', filterAndSortPosts);
     }
@@ -160,7 +157,7 @@ function renderPosts(sortCriteria, searchTerm = '') {
     const lowerCaseSearch = searchTerm.toLowerCase();
 
     if (searchTerm) {
-        posts = posts.filter(post => 
+        posts = posts.filter(post =>
             (post.title && post.title.toLowerCase().includes(lowerCaseSearch)) ||
             (post.content && post.content.toLowerCase().includes(lowerCaseSearch))
         );
@@ -195,7 +192,7 @@ createPostBtn.addEventListener('click', () => {
     if (!title) return alert("Title is required.");
     if (!content && !file) return alert("Please enter text or upload an image.");
 
-    const userName = getUserName();   // ⭐ USER NAME ADD HOGAYA
+    const userName = getUserName();
     const userInitial = userName.charAt(0).toUpperCase();
 
     const handlePostCreation = (imageSrc) => {
@@ -206,14 +203,14 @@ createPostBtn.addEventListener('click', () => {
             image: imageSrc || null,
             likes: 0,
             liked: false,
-            userName: userName,         // ⭐ POST KE ANDAR SAVE
-            userInitial: userInitial,   // ⭐ INITIAL SAVE
+            userName: userName,
+            userInitial: userInitial,
             time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
         };
 
         savePostToLocalStorage(postObj);
-        filterAndSortPosts(); 
-        
+        filterAndSortPosts();
+
         postTitleInput.value = '';
         postInput.value = '';
         postImage.value = '';
@@ -253,9 +250,9 @@ function setupEditListeners(postDiv, post, currentImage) {
                 image: imageSrc,
                 time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
             };
-            
-            updatePostInLocalStorage(updatedPost); 
-            filterAndSortPosts(); 
+
+            updatePostInLocalStorage(updatedPost);
+            filterAndSortPosts();
         };
 
         if (newFile) {
@@ -270,7 +267,7 @@ function setupEditListeners(postDiv, post, currentImage) {
     });
 
     cancelBtn.addEventListener('click', () => {
-        filterAndSortPosts(); 
+        filterAndSortPosts();
     });
 }
 
@@ -278,6 +275,7 @@ function setEditMode(postDiv, post) {
     const { title, content, image } = post;
     const currentImage = image;
 
+    // The inline classes here use the utility classes defined at the end of style.css
     postDiv.innerHTML = `
         <div class="flex items-center justify-between mb-3">
             <strong class="text-text-dark">Editing Post</strong>
@@ -301,7 +299,7 @@ function setEditMode(postDiv, post) {
                 <div class="flex items-center mt-1">
                     <input type="checkbox" class="delete-image-checkbox h-4 w-4 text-red-600 mr-2">
                     <label class="text-sm text-red-600">Delete Current Image</label>
-                </div>` 
+                </div>`
             : ''}
         </div>
     `;
@@ -313,12 +311,15 @@ function setEditMode(postDiv, post) {
 
 function createPostElement(post) {
     const { id, title, content, image, likes, liked, time, userName, userInitial } = post;
-    const signupUser=JSON.parse(localStorage.getItem("userData"))
-    console.log(signupUser)
+
+    // Safety check for user data (removed signupUser dependency for simplicity)
+    const displayName = userName || 'Unknown User';
+
     let postDiv = document.createElement('div');
-    postDiv.className = 'bg-card-bg rounded-xl shadow-lg p-5 transition hover:shadow-xl post-item';
+    postDiv.className = 'post-item'; // Use the main class for styling
     postDiv.dataset.id = id;
 
+    // Improved UI structure for better alignment (using flexbox utility classes defined in CSS)
     postDiv.innerHTML = `
         <div class="flex items-center justify-between mb-3">
             <div class="flex items-center space-x-2">
@@ -326,7 +327,7 @@ function createPostElement(post) {
                     src="https://via.placeholder.com/150/4F46E5/FFFFFF?text=${userInitial}"
                     alt="${userName}">
                 <div>
-                    <strong class="text-lg font-semibold text-text-dark post-title">${signupUser.firstName}</strong>
+                    <strong class="text-lg font-semibold text-text-dark post-title">${displayName}</strong>
                     <span class="text-xs text-text-light block">by ${userName} - ${time}</span>
                 </div>
             </div>
@@ -336,8 +337,11 @@ function createPostElement(post) {
             </div>
         </div>
         
-        ${content ? `<p class="text-text-dark mb-4 post-content">${content}</p>` : ''}
-        ${image ? `<img src="${image}" class="rounded-lg max-h-96 w-full object-cover mb-4 border post-image">` : ''}
+        <strong class="text-lg font-bold text-text-dark">${title}</strong>
+
+        ${content ? `<p class="text-text-dark post-content">${content}</p>` : ''}
+        
+        ${image ? `<img src="${image}" class="rounded-lg max-h-96 w-full object-cover border post-image">` : ''}
 
         <button class="likeBtn flex items-center text-gray-500 hover:text-red-500 ${liked ? 'text-red-500' : ''}">
             <span class="text-lg mr-1">${liked ? '❤️' : '🤍'}</span>
@@ -350,7 +354,7 @@ function createPostElement(post) {
         const currentPost = getPostsFromLocalStorage().find(p => p.id === id) || post;
         let isLiked = !currentPost.liked;
         let currentLikes = currentPost.likes + (isLiked ? 1 : -1);
-        
+
         updatePostLikes(id, currentLikes, isLiked);
         filterAndSortPosts();
     });

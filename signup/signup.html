@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup UI</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="signup-card">
+      <h2>Create an account</h2>
+      <p class="login-text">
+        Already have an account? 
+        <a href="./login/index.html">Login</a>
+        <a href="../index.html"></a>
+      </p>
+      <form id="signupForm">
+        <div class="name-grid">
+          <input id="firstName" type="text" placeholder="First name"/>
+          <input id="lastName" type="text" placeholder="Last name"/>
+        </div>
+        <input id="email" type="email" placeholder="Email"/>
+        <div class="password-container">
+          <input id="password" type="password" placeholder="Enter your password"/>
+          <button type="button" id="togglePassword">👁️</button>
+        </div>
+        <div class="profile-image-container">
+          <label>Profile Image</label>
+          <input id="profileImage" type="file" accept="image/*"/>
+        </div>
+        <button type="submit" class="submit-btn">Create account</button>
+        <div class="divider">
+          <div></div>
+          <span>Or register with</span>
+          <div></div>
+        </div>
+        <button type="button" class="google-btn">
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo">
+          Google
+        </button>
+      </form>
+    </div>
+  </div>
+  <script src="signup.js"></script>
+</body>
+</html>
